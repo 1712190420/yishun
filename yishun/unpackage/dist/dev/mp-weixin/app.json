@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/yuepai/yuepai",
+    "pages/zuopin/zuopin",
+    "pages/fabu/fabu",
+    "pages/yaoqing/yaoqing",
+    "pages/gerenxinxi/gerenxinxi"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "usingComponents": {}
+}
