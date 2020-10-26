@@ -1,9 +1,9 @@
 <template>
 	<view>
 		<view class="yuepai">
-			<view class="gerenxinxi" >
+			<view class="gerenxinxi" @click="jumpzhuye">
 				<view class="touxiang">
-					<image src="../../static/icon/man.png" style="width: 150upx;height: 150upx;border-radius: 50%;"></image>
+					<image src="../../static/2.png" style="width: 150upx;height: 150upx;border-radius: 50%;"></image>
 				</view>
 				<view class="xinxi">
 					<view class="geren">
@@ -20,8 +20,16 @@
 				</view>
 			</view>
 			
+			<view class="jianjie">
+				<view class="text">
+					希望互免
+				</view>
+				<view class="paishe">
+					拍摄时间：2020/10/14 10:28
+				</view>
+			</view>
 			<view class="text">
-				希望互免
+				我很喜欢
 			</view>
 			<view>
 				<view class="picture">
@@ -47,25 +55,25 @@
 			</view>	
 			<view class="yaoqing">
 				<view class="kefu tubiao">
-					<image src="../../static/icon/fabu.png" style="width: 50upx;height: 50upx;"></image>
+					<image src="../../static/icon/kefu.png" style="width: 50upx;height: 50upx;"></image>
 					<view class="test">
 						客服
 					</view>
 				</view>
 				<view class="souchang tubiao">
-					<image src="../../static/icon/fabu.png" style="width: 50upx;height: 50upx;"></image>
+					<image src="../../static/icon/shoucang.png" style="width: 50upx;height: 50upx;"></image>
 					<view class="test">
 						收藏
 					</view>
 				</view>
 				<view class="fengxiang tubiao">
-					<image src="../../static/icon/fabu.png" style="width: 50upx;height: 50upx;"></image>
+					<image src="../../static/icon/fenxiang.png" style="width: 50upx;height: 50upx;"></image>
 					<view class="test">
 						分享
 					</view>
 				</view>
-				<view class="faqiyaoqing">
-					<button class="faqi">邀请</button>
+				<view class="faqiyaoqing" @click="faqiyaoqing">
+					<button class="faqi">{{yaoqing}}</button>
 				</view>
 			</view>
 		</view>
@@ -76,11 +84,18 @@
 	export default {
 		data() {
 			return {
-				
+				yaoqing:"发起邀请"
 			}
 		},
 		methods: {
-			
+			jumpzhuye(e) {
+				uni.navigateTo({
+				    url: '../gerenxinxi/gerenzhuye',
+				});
+			},
+			faqiyaoqing(e){
+				this.yaoqing = "已邀请"
+			}
 		}
 	}
 </script>
@@ -89,12 +104,12 @@
 .yuepai{
 	display: flex;
 	flex-direction: column;
+	background-color: #FFFFFF
 }
 .gerenxinxi{
 	display: flex;
 	flex-direction: row;
 	height: 200upx;
-	border: 1upx solid #E5E5E5;
 }
 .touxiang{
 	display: flex;
@@ -115,30 +130,33 @@
 	margin-left: 30upx;
 }
 .text{
-	margin-top: 50upx;
+	margin-top: 30upx;
 	margin-left: 50upx;
-	margin-bottom: 50upx;
 }
 .picture{
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 50upx;
+	margin-top: 30upx;
 }
 .tableList{
 }
 .table{
 	height: 50upx;
-	width: 200upx;
+	width: 150upx;
 	border-radius: 50upx;
 	line-height: 50upx;
 	float:left;
 	margin-left: 50upx;
+	font-size: 8upx;
+	border: 1upx solid #4D3B7E;
+	background-color: #FFFFFF;
 }
 .location{
 	display: flex;
 	flex-direction: row;
-	margin-top: 50upx;
+	margin-top: 30upx;
 	margin-left: 50upx;
 }
 .shoudao{
@@ -154,7 +172,7 @@
 	flex-direction: row;
 	border: 1upx solid #E5E5E5;
 	height: 150upx;
-	margin-top: 50upx;
+	margin-top: 30upx;
 	align-items: center;
 }
 .tubiao{
@@ -171,5 +189,16 @@
 	position: absolute;
 	right: 30upx;
 	width: 300upx;
+	background-color: #4D3B7E;
+	color: #FFFFFF;
+}
+.jianjie{
+	display: flex;
+	flex-direction: row;
+}
+.paishe{
+	margin-top: 30upx;
+	position: absolute;
+	right: 50upx;
 }
 </style>

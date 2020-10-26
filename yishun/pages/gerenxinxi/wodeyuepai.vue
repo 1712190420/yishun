@@ -1,9 +1,12 @@
 <template>
 	<view>
-		<scroll-view scroll-y="true" style="height: 1200upx;">
+		<scroll-view scroll-y="true" style="height: 1240upx;">
 			<view class="yuepai">
 				<view class="text">
 					希望互免
+				</view>
+				<view class="text">
+					作品简述
 				</view>
 				<view>
 					<view class="picture">
@@ -29,8 +32,16 @@
 				</view>
 			</view>
 			<view class="yuepai">
+				<view class="jianjie">
+					<view class="text">
+						希望互免
+					</view>
+					<view class="paishe">
+						拍摄时间：2020/10/14 10:28
+					</view>
+				</view>
 				<view class="text">
-					希望互免
+					作品简述
 				</view>
 				<view>
 					<view class="picture">
@@ -79,27 +90,31 @@
 	border: 1upx solid #E5E5E5;
 	padding-bottom: 30upx;
 	margin-bottom: 30upx;
+	background-color: #FFFFFF
 }
 .text{
-	margin-top: 50upx;
+	margin-top: 30upx;
 	margin-left: 50upx;
-	margin-bottom: 50upx;
 }
 .picture{
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 50upx;
+	margin-top: 30upx;
 }
 .tableList{
 }
 .table{
 	height: 50upx;
-	width: 200upx;
+	width: 150upx;
 	border-radius: 50upx;
 	line-height: 50upx;
 	float:left;
 	margin-left: 50upx;
+	font-size: 8upx;
+	border: 1upx solid #4D3B7E;
+	background-color: #FFFFFF;
 }
 .location{
 	display: flex;
@@ -114,5 +129,14 @@
 .yuedu{
 	position: absolute;
 	right: 30upx;
+}
+.jianjie{
+	display: flex;
+	flex-direction: row;
+}
+.paishe{
+	margin-top: 30upx;
+	position: absolute;
+	right: 50upx;
 }
 </style>

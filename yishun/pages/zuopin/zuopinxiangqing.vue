@@ -7,9 +7,12 @@
 						<image src="../../static/2.png" style="width: 400upx;height: 300upx;"></image>
 					</view>
 				</view>
+				<view class="text">
+					作品简述
+				</view>
 				<view class="location">
 					<view class="mincheng">
-						摄影师:TL
+						邀请人:TL
 					</view>
 					<view class="didian">
 						<view>
@@ -19,9 +22,12 @@
 							浙江工商大学
 						</view>
 					</view>
+					<view class="shijian">
+						2020/10/21 14:30
+					</view>
 				</view>	
 				<view class="anniu">
-					<button class="anniuyangshi yaoqing" type="default"><image src="../../static/icon/location.png" style="width: 30upx;height: 30upx;align-items: center;"></image>邀请约拍</button>
+					<button class="anniuyangshi yaoqing" type="default"><image src="../../static/icon/yaoqing.png" style="width: 30upx;height: 30upx;align-items: center;color: #007AFF;"></image>邀请约拍</button>
 					<button class="anniuyangshi guanzhu" type="default">+关注</button>
 				</view>
 			</view>
@@ -57,17 +63,23 @@
 	justify-content: center;
 	align-items: center;
 }
+.text{
+	display: flex;
+	justify-content: center;
+	margin-top: 30upx;
+}
 .location{
 	display: flex;
 	flex-direction: row;
-	margin-top: 50upx;
-	margin-left: 150upx;
+	justify-content: center;
+	align-items: center;
+	margin-top: 30upx;
 }
 .didian{
 	display: flex;
 	flex-direction: row;
-	position: absolute;
-	right: 150upx;
+	margin-left: 50upx;
+	margin-right: 50upx;
 }
 .anniu{
 	display: flex;
@@ -77,8 +89,8 @@
 	align-items: center;
 }
 .anniuyangshi{
-	color: #007AFF;
-	border: 1upx solid #007AFF;
+	color: #4D3B7E;
+	border: 1upx solid #4D3B7E;
 	height: 60upx;
 	width: 220upx;
 	line-height: 60upx;

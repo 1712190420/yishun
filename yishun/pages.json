@@ -72,11 +72,31 @@
             "path" : "pages/zuopin/zuopinxiangqing",
             "style" : {}
         }
+        ,{
+            "path" : "pages/yaoqing/shoudao",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/yaoqing/fachu",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/yaoqing/jieshou",
+            "style" : {
+            	"navigationBarTitleText": "接受的约拍邀请"
+            }
+        }
+        ,{
+            "path" : "pages/yaoqing/jujue",
+            "style" : {
+				"navigationBarTitleText": "拒绝的约拍邀请"
+			}
+        }
     ],
 	"tabBar":{
 		"color":"#333",
 	    "selectedColor":"deepskyblue",
-	    "backgroundColor":"#eee",
+	    "backgroundColor":"#FFFFFF",
 	    "borderStyle":"black",
 	    "list":[
 	        {

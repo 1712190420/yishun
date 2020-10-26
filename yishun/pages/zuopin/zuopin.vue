@@ -10,28 +10,28 @@
 		
 		<view class="tianchong">
 			<view>
-				<view class="fenglei">
-					<image src="../../static/icon/message.png" style="width: 300upx;height: 200upx;"></image>
+				<view class="fenglei" @click="jumpliebiao">
+					<image class="pic" src="../../static/rengxiang.png" style="width: 300upx;height: 200upx;"></image>
 					<view class="miaoshu">
 						人像
 					</view>
 				</view>
-				<view class="fenglei">
-					<image src="../../static/icon/fabu.png" style="width: 300upx;height: 200upx;"></image>
+				<view class="fenglei" @click="jumpliebiao">
+					<image class="pic" src="../../static/qianwei.png" style="width: 300upx;height: 200upx;"></image>
 					<view class="miaoshu">
 						前卫
 					</view>
 				</view>
 			</view>
 			<view>
-				<view class="fenglei">
-					<image src="../../static/icon/fenlei.png" style="width: 300upx;height: 200upx;"></image>
+				<view class="fenglei" @click="jumpliebiao">
+					<image class="pic" src="../../static/meishi.png" style="width: 300upx;height: 200upx;"></image>
 					<view class="miaoshu">
 						美食
 					</view>
 				</view>
-				<view class="fenglei">
-					<image src="../../static/icon/message.png" style="width: 300upx;height: 200upx;"></image>
+				<view class="fenglei" @click="jumpliebiao">
+					<image class="pic" src="../../static/fengjin.png" style="width: 300upx;height: 200upx;"></image>
 					<view class="miaoshu">
 						风景
 					</view>
@@ -56,7 +56,11 @@
 			];
 		},
 		methods: {
-			
+			jumpliebiao(e) {
+				uni.navigateTo({
+				    url: '../zuopin/zuopinxiangqing',
+				});
+			},
 		}
 	}
 </script>
@@ -71,22 +75,26 @@ swiper-item image{
 }
 .tianchong{
 	display: flex;
+	background-color: #FFFFFF;
+	padding-bottom: 45upx;
 }
 .fenglei{
 	display: flex;
 	flex-direction: column;
 	width: 300upx;
-	height: 260upx;
+	height: 300upx;
 	margin-top: 50upx;
 	margin-left: 50upx;
+}
+.pic{
+	margin-bottom: 15upx;
 }
 .miaoshu{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-top: 10upx;
-	border-style: solid;
-	border-width: 3upx;
-	border-color: #E5E5E5;
+	border: 1upx solid #E5E5E5;
+	height: 80upx;
+	color: #4D3B7E;
 }
 </style>

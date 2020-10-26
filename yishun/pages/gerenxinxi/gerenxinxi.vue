@@ -2,7 +2,7 @@
 	<view style="background-color: #eee;">
 		<view class="gerenxinxi" style="background-color: #fff;">
 			<view class="touxiang">
-				<image src="../../static/icon/man.png" style="width: 150upx;height: 150upx;border-radius: 50%;"></image>
+				<image src="../../static/2.png" style="width: 150upx;height: 150upx;border-radius: 50%;"></image>
 			</view>
 			<view class="xinxi">
 				<view class="geren">
@@ -20,54 +20,49 @@
 		</view>
 		<view class="gong" style="background-color: #fff;">
 			<view class="gongneng">
-				<view class="zigongneng">
-					<image class="tu" src="../../static/icon/fabu.png"></image>
+				<view class="zigongneng" @click="jumpyuepai">
+					<image class="tu" src="../../static/icon/wodeshoucang.png"></image>
 					<view class="myyuepai">我的约拍</view>
 				</view>
-				<view class="zigongneng">
-					<image class="tu" src="../../static/icon/fabu.png"></image>
+				<view class="zigongneng" @click="jumpzhuye">
+					<image class="tu" src="../../static/icon/gerenzhuye.png"></image>
 					<view class="myyuepai">个人主页</view>
 				</view>
-				<view class="zigongneng">
-					<image class="tu" src="../../static/icon/fabu.png"></image>
+				<view class="zigongneng" @click="jumpbianji">
+					<image class="tu" src="../../static/icon/bianji.png"></image>
 					<view class="myyuepai">编辑资料</view>
 				</view>
 			</view>
 			<view class="gongneng">
 				<view class="zigongneng">
-					<image class="tu" src="../../static/icon/fabu.png"></image>
+					<image class="tu" src="../../static/icon/fenxiangminpian.png"></image>
 					<view class="myyuepai">分享名片</view>
 				</view>
 				<view class="zigongneng">
-					<image class="tu" src="../../static/icon/fabu.png"></image>
-					<view class="myyuepai">我的收藏</view>
+					<image class="tu" src="../../static/icon/wodeshoucang.png"></image>
+					<view class="myyuepai">我的关注</view>
 				</view>
 				<view class="zigongneng">
-					<image class="tu" src="../../static/icon/fabu.png"></image>
+					<image class="tu" src="../../static/icon/fankui.png"></image>
 					<view class="myyuepai">建议反馈</view>
 				</view>
 			</view>
 		</view>
 		<view class="gong" style="background-color: #fff;">
 			<view class="huodong">
-				<image class="icon" src="../../static/icon/fabu.png"></image>
+				<image class="icon" src="../../static/icon/renzheng.png"></image>
 				<view class="text">认证中心</view>
-				<image class="qianjin" src="../../static/icon/man.png"></image>
+				<image class="qianjin" src="../../static/icon/qianjin.png"></image>
 			</view>
 			<view class="huodong">
-				<image class="icon" src="../../static/icon/fabu.png"></image>
-				<view class="text">加入小组</view>
-				<image class="qianjin" src="../../static/icon/man.png"></image>
-			</view>
-			<view class="huodong">
-				<image class="icon" src="../../static/icon/fabu.png"></image>
+				<image class="icon" src="../../static/icon/guanli.png"></image>
 				<view class="text">活动管理</view>
-				<image class="qianjin" src="../../static/icon/man.png"></image>
+				<image class="qianjin" src="../../static/icon/qianjin.png"></image>
 			</view>
 			<view class="huodong">
-				<image class="icon" src="../../static/icon/fabu.png"></image>
+				<image class="icon" src="../../static/icon/qiandao.png"></image>
 				<view class="text">每日签到</view>
-				<image class="qianjin" src="../../static/icon/man.png"></image>
+				<image class="qianjin" src="../../static/icon/qianjin.png"></image>
 			</view>
 		</view>
 	</view>
@@ -81,7 +76,21 @@
 			}
 		},
 		methods: {
-			
+			jumpyuepai(e) {
+				uni.navigateTo({
+				    url: '../gerenxinxi/wodeyuepai',
+				});
+			},
+			jumpzhuye(e) {
+				uni.navigateTo({
+				    url: '../gerenxinxi/gerenzhuye',
+				});
+			},
+			jumpbianji(e) {
+				uni.navigateTo({
+				    url: '../gerenxinxi/bianji',
+				});
+			},
 		}
 	}
 </script>

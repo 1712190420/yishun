@@ -9,37 +9,19 @@
 					图片上传
 				</view>
 				<view class="count">
-					0/3
+					{{count}}/3
 				</view>
 			</view>
 			<view class="tianjia">
-				<image src="../../static/icon/fenlei.png" style="width: 150upx;height: 150upx;"></image>
+				<view v-for="(item,index) in imgList" :key="index" @tap="ViewImage" :data-url="imgList[index]" style="margin-right: 20upx;">
+					<image :src="imgList[index]" mode="aspectFill" style="width: 150upx;height: 150upx;"></image>
+				</view>
+				<view @tap="ChooseImage" v-if="imgList.length<3">
+					<image src="../../static/icon/add.png" style="width: 150upx;height: 150upx;"></image>
+				</view>
 			</view>
 		</view>
 		<view class="xinxi">
-			<view class="diqu" @click="addressShow = true">
-				<view class="content_list">
-				    <view class="content_list_label">地区</view>
-				    <view class="content_list_content">
-				        {{address}}
-						<pickerAddress v-model="addressShow" @confirm="addresspick" />
-				    </view>
-					<view class="fuhao">
-						<image src="../../static/icon/fenlei.png" style="width: 30upx;height: 30upx;"></image>
-					</view>
-				</view>
-			</view>
-			<view class="diqu">
-				<view class="yaoqiu">
-					要求
-				</view>
-				<picker class="xuanze" :range="years" @change="yearChange">
-					{{ years[yearsIndex] }} 
-				</picker>
-				<view class="fuhao">
-					<image src="../../static/icon/fenlei.png" style="width: 30upx;height: 30upx;"></image>
-				</view>
-			</view>
 			<view class="diqu">
 				<view class="yaoqiu">
 					费用
@@ -48,7 +30,18 @@
 				    <view>{{ free[freetext] }} </view>
 				</picker>
 				<view class="fuhao">
-					<image src="../../static/icon/fenlei.png" style="width: 30upx;height: 30upx;"></image>
+					<image src="../../static/icon/qianjin.png" style="width: 30upx;height: 30upx;"></image>
+				</view>
+			</view>
+			<view class="diqu">
+				<view class="yaoqiu">
+					拍摄时间
+				</view>
+				<picker class="xuanze" :range="years" @change="yearChange" mode="multiSelector">
+					{{years[0][yearsIndex1]}}-{{years[1][yearsIndex2]}}-{{years[2][yearsIndex3]}}
+				</picker>
+				<view class="fuhao">
+					<image src="../../static/icon/qianjin.png" style="width: 30upx;height: 30upx;"></image>
 				</view>
 			</view>
 			<view class="diqu">
@@ -59,7 +52,7 @@
 				    <view>{{ location[locationIndex] }} </view>
 				</picker>
 				<view class="fuhao">
-					<image src="../../static/icon/fenlei.png" style="width: 30upx;height: 30upx;"></image>
+					<image src="../../static/icon/qianjin.png" style="width: 30upx;height: 30upx;"></image>
 				</view>
 			</view>
 		</view>
@@ -85,9 +78,17 @@
 	                    city: '',
 	                    area: '',
 	                },
+					imgList: [],
+					count: 0,
 	                address: '',
-					years:["所有人","关注的人"],
-					yearsIndex:0,
+					years:[
+						[2018, 2019, 2020],
+						[10, 11, 12],
+						[15, 16, 17],
+					],
+					yearsIndex1:0,
+					yearsIndex2:0,
+					yearsIndex3:0,
 					free:["希望互免","需要收费","愿意付费","费用协商"],
 					freetext:0,
 					location:["浙江工商大学","浙江大学","杭州电子科技大学","浙江理工大学"],
@@ -108,13 +109,44 @@
 	                this.address = place
 	            },
 				yearChange:function(e){
+					console.log("e")
+					this.yearsIndex1 = e.detail.value[0];
+					this.yearsIndex2 = e.detail.value[1];
+					this.yearsIndex3 = e.detail.value[2];
+				},
+				guanzhuChange:function(e){
 					console.log(e)
-					this.yearsIndex = e.detail.value;
+					this.guanzhuIndex = e.detail.value;
 				},
 				freeChange:function(e){
 					console.log(e)
 					this.freetext = e.detail.value;
 				},
+				locationChange:function(e){
+					console.log(e)
+					this.locationIndex = e.detail.value;
+				},
+				ChooseImage() {
+					uni.chooseImage({
+						count: 3, //默认9
+						sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+						sourceType: ['album'], //从相册选择
+						success: (res) => {
+							if (this.imgList.length != 0) {
+								this.imgList = this.imgList.concat(res.tempFilePaths)
+							} else {
+								this.imgList = res.tempFilePaths
+							}
+							this.count = this.imgList.length
+						}
+					});
+				},
+				ViewImage(e) {
+					uni.previewImage({
+						urls: this.imgList,
+						current: e.currentTarget.dataset.url
+					});
+				}
 	        },
 	        components: {
 	            pickerAddress
@@ -142,6 +174,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	background-color: #EEEEEE;
 }
 .shuoming{
 	display: flex;
@@ -149,6 +182,7 @@
 	height: 200upx;
 	width: 680upx;
 	margin-top: 30upx;
+	background-color: #FFFFFF
 }
 .shuru{
 	margin-top: 20upx;
@@ -162,6 +196,7 @@
 	height: 300upx;
 	width: 680upx;
 	margin-top: 30upx;
+	background-color: #FFFFFF
 }
 .jishu{
 	display: flex;
@@ -179,14 +214,17 @@
 .tianjia{
 	margin-left: 30upx;
 	margin-top: 30upx;
+	display: flex;
+	flex-direction: row;
 }
 .xinxi{
 	display: flex;
 	flex-direction: column;
 	border: 1upx solid #E5E5E5;
 	margin-top: 30upx;
-	height: 300upx;
+	height: 240upx;
 	width: 680upx;
+	background-color: #FFFFFF
 }
 .diqu{
 	display: flex;
@@ -218,6 +256,8 @@
 	border: 1upx solid #E5E5E5;
 	height: 100upx;
 	width: 680upx;
+	background-color: #FFFFFF;
+	margin-top: 30upx;
 }
 .addbiaoqian{
 	display: flex;
@@ -225,16 +265,20 @@
 	margin-left: 30upx;
 }
 .table{
-	height: 80upx;
-	width: 180upx;
+	height: 60upx;
+	width: 150upx;
 	border-radius: 50upx;
-	line-height: 80upx;
+	line-height: 60upx;
 	float:left;
-	margin-left: 30upx;
+	margin-left: 10upx;
+	font-size: 8upx;
+	border: 1upx solid #4D3B7E;
+	background-color: #FFFFFF;
 }
 .public{
 	margin-top: 30upx;
 	width: 680upx;
-	background-color: #007AFF;
+	background-color: #4D3B7E;
+	color: #FFFFFF;
 }
 </style>
