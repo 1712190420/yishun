@@ -153,7 +153,7 @@
 			},
 			confirm(data) {
 				  console.log(data);
-				  this.biaoqianinfo = data.map((el) => el.label).join(",");
+				  this.biaoqianinfo = data.map((el) => el.label).join("  ");
 			}
 		},
 		components: {

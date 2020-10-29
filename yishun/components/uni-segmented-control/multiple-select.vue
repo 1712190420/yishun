@@ -265,7 +265,7 @@ export default {
         color: $uni-text-color-grey;
       }
       .all {
-        color: $uni-color-success;
+        color: black;
         .all-active {
           &::after {
             display: inline-block;
@@ -310,6 +310,7 @@ export default {
         > .label {
           flex: 1;
           text-align: center;
+		  font-size: 30rpx;
         }
         > .selected-icon {
           position: absolute;
