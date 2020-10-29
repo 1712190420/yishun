@@ -57,9 +57,16 @@
 			</view>
 		</view>
 		<view class="biaoqian">
-			<view class="addbiaoqian">
-				<button class="table" type="default">+标签</button>
+			<view class="bqshuoming">
+			    <text class="label">当前选中标签：</text>
+			    <text class="value" @tap="biaoqianshow = true">{{biaoqianinfo || "请选择"}}</text>
 			</view>
+			<multiple-select
+			    v-model="biaoqianshow"
+			    :data="biaoqianlist"
+			    :default-selected="biaoqiandefaultSelected"
+			    @confirm="confirm"
+			></multiple-select>
 		</view>
 		<view class="anniu">
 			<button class="public" type="default">发布</button>
@@ -69,6 +76,7 @@
 
 <script>
 	import pickerAddress from '@/components/liudx-pickerAddress/index.vue'
+	import multipleSelect from '@/components/uni-segmented-control/multiple-select.vue'
 	    export default {
 	        data() {
 	            return {
@@ -93,11 +101,37 @@
 					freetext:0,
 					location:["浙江工商大学","浙江大学","杭州电子科技大学","浙江理工大学"],
 					locationIndex:0,
+					biaoqianshow: false, //是否显示 - 双向绑定
+					biaoqianinfo: "",
+					biaoqianlist: [], //数据源
+					biaoqiandefaultSelected: ["3", "5"], //默认选中项      
 	            }
 	        },
 	        onLoad() {
 	
 	        },
+			onShow() {
+				setTimeout(() => {
+				  this.biaoqianlist = [
+				    {
+				      label: "毕业照",
+				      value: "1",
+				    },
+				    {
+				      label: "证件照",
+				      value: "2",
+				    },
+				    {
+				      label: "美食",
+				      value: "3",
+				    },
+				    {
+				      label: "汉服",
+				      value: "4",
+				    },
+				  ];
+				}, 1000);
+			},
 	        methods: {
 	            addresspick(obj) {
 	                let arr = [ 'province', 'city', 'area'];
@@ -146,27 +180,18 @@
 						urls: this.imgList,
 						current: e.currentTarget.dataset.url
 					});
+				}, 
+				confirm(data) {
+				  console.log(data);
+				  this.biaoqianinfo = data.map((el) => el.label).join(",");
 				}
 	        },
 	        components: {
-	            pickerAddress
+	            pickerAddress,
+				multipleSelect
 	        }
 	    }
 </script>
-
-<style lang="scss" scoped>
-    .content {
-        &_list{
-            display: flex;
-            justify-content:space-around;
-            &_content{
-                flex: 1;
-                width: auto;
-                text-align: right;
-            }
-        }
-    }
-</style>
 
 <style>
 .quanju{
@@ -251,19 +276,6 @@
 .xuanze{
 	margin-right: 110upx;
 }
-.biaoqian{
-	display: flex;
-	border: 1upx solid #E5E5E5;
-	height: 100upx;
-	width: 680upx;
-	background-color: #FFFFFF;
-	margin-top: 30upx;
-}
-.addbiaoqian{
-	display: flex;
-	align-items: center;
-	margin-left: 30upx;
-}
 .table{
 	height: 60upx;
 	width: 150upx;
@@ -280,5 +292,23 @@
 	width: 680upx;
 	background-color: #4D3B7E;
 	color: #FFFFFF;
+}
+.bqshuoming {
+    width: 100%;
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+    font-size: 28rpx;
+    box-sizing: border-box;
+    padding: 20rpx;
+}
+.value {
+    color: #2088f9;
+}
+.title {
+    text-align: center;
+    font-size: 36rpx;
+    color: #2088f9;
+    margin-top: 20vh;
 }
 </style>

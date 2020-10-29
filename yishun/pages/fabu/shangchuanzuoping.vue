@@ -47,11 +47,16 @@
 		</view>
 		
 		<view class="biaoqian">
-			<view class="addbiaoqian">
-				<picker class="table" :range="tableList" @change="tableChange">
-					{{ tableList[tableIndex] }} 
-				</picker>
+			<view class="bqshuoming">
+			    <text class="label">当前选中标签：</text>
+			    <text class="value" @tap="biaoqianshow = true">{{biaoqianinfo || "请选择"}}</text>
 			</view>
+			<multiple-select
+			    v-model="biaoqianshow"
+			    :data="biaoqianlist"
+			    :default-selected="biaoqiandefaultSelected"
+			    @confirm="confirm"
+			></multiple-select>
 		</view>
 		<view class="anniu">
 			<button class="public" type="default">上传</button>
@@ -60,6 +65,7 @@
 </template>
 
 <script>
+	import multipleSelect from '@/components/uni-segmented-control/multiple-select.vue'
 	export default {
 		data() {
 			return {
@@ -77,7 +83,33 @@
 				yearsIndex3:0,
 				location:["浙江工商大学","浙江大学","杭州电子科技大学","浙江理工大学"],
 				locationIndex:0,
+				biaoqianshow: false, //是否显示 - 双向绑定
+				biaoqianinfo: "",
+				biaoqianlist: [], //数据源
+				biaoqiandefaultSelected: ["3", "5"], //默认选中项   
 			}
+		},
+		onShow() {
+			setTimeout(() => {
+			  this.biaoqianlist = [
+			    {
+			      label: "毕业照",
+			      value: "1",
+			    },
+			    {
+			      label: "证件照",
+			      value: "2",
+			    },
+			    {
+			      label: "美食",
+			      value: "3",
+			    },
+			    {
+			      label: "汉服",
+			      value: "4",
+			    },
+			  ];
+			}, 1000);
 		},
 		methods: {
 			tableChange:function(e){
@@ -114,7 +146,14 @@
 					urls: this.imgList,
 					current: e.currentTarget.dataset.url
 				});
+			},
+			confirm(data) {
+				  console.log(data);
+				  this.biaoqianinfo = data.map((el) => el.label).join(",");
 			}
+		},
+		components: {
+			multipleSelect
 		}
 	}
 </script>
@@ -167,19 +206,6 @@
 	display: flex;
 	flex-direction: row;
 }
-.biaoqian{
-	display: flex;
-	border: 1upx solid #E5E5E5;
-	height: 100upx;
-	width: 680upx;
-	margin-top: 30upx;
-	background-color: #FFFFFF
-}
-.addbiaoqian{
-	display: flex;
-	align-items: center;
-	margin-left: 30upx;
-}
 .table{
 	display: flex;
 	align-items: center;
@@ -225,4 +251,22 @@
 .xuanze{
 	margin-right: 110upx;
 }
+  .bqshuoming {
+    width: 100%;
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+    font-size: 28rpx;
+    box-sizing: border-box;
+    padding: 20rpx;
+  }
+  .value {
+    color: #2088f9;
+  }
+  .title {
+    text-align: center;
+    font-size: 36rpx;
+    color: #2088f9;
+    margin-top: 20vh;
+  }
 </style>
