@@ -44,19 +44,23 @@
 					<image src="../../static/icon/qianjin.png" style="width: 30upx;height: 30upx;"></image>
 				</view>
 			</view>
-		</view>
-		
-		<view class="biaoqian">
-			<view class="bqshuoming">
-			    <text class="label">当前选中标签：</text>
-			    <text class="value" @tap="biaoqianshow = true">{{biaoqianinfo || "请选择"}}</text>
+			<view class="diqu">
+				<view class="yaoqiu">
+					标签
+				</view>
+				<view class="xuanze">
+				    <text @tap="biaoqianshow = true">{{biaoqianinfo || "请选择"}}</text>
+				</view>
+				<view class="fuhao">
+					<image src="../../static/icon/qianjin.png" style="width: 30upx;height: 30upx;"></image>
+				</view>
+				<multiple-select
+				    v-model="biaoqianshow"
+				    :data="biaoqianlist"
+				    :default-selected="biaoqiandefaultSelected"
+				    @confirm="confirm"
+				></multiple-select>
 			</view>
-			<multiple-select
-			    v-model="biaoqianshow"
-			    :data="biaoqianlist"
-			    :default-selected="biaoqiandefaultSelected"
-			    @confirm="confirm"
-			></multiple-select>
 		</view>
 		<view class="anniu">
 			<button class="public" type="default">上传</button>
@@ -251,22 +255,4 @@
 .xuanze{
 	margin-right: 110upx;
 }
-  .bqshuoming {
-    width: 100%;
-    margin-top: 5vh;
-    display: flex;
-    justify-content: center;
-    font-size: 28rpx;
-    box-sizing: border-box;
-    padding: 20rpx;
-  }
-  .value {
-    color: #2088f9;
-  }
-  .title {
-    text-align: center;
-    font-size: 36rpx;
-    color: #2088f9;
-    margin-top: 20vh;
-  }
 </style>
