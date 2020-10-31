@@ -1,7 +1,7 @@
 <template>
 	<view class="quanju">
 		<view class="shuoming">
-			<textarea class="shuru" type="text" placeholder="输入作品描述"></textarea>
+			<textarea class="shuru" type="text" placeholder="输入作品描述" @blur="detailChange"></textarea>
 		</view>
 		<view class="shangchuan">
 			<view class="jishu">
@@ -62,7 +62,7 @@
 				></multiple-select>
 			</view>
 		</view>
-		<view class="anniu">
+		<view class="anniu"@click="postzuoping">
 			<button class="public" type="default">上传</button>
 		</view>
 	</view>
@@ -73,7 +73,13 @@
 	export default {
 		data() {
 			return {
-				imgList: [],
+				imgList:[],//string数组里放uri
+				imgLists:[],
+				img:{
+					uri:"",
+					name:"",
+				},
+				detail:"",
 				count: 0,
 				tableList:["+标签","人像","美食","前卫","风景"],
 				tableIndex:0,
@@ -91,6 +97,13 @@
 				biaoqianinfo: "",
 				biaoqianlist: [], //数据源
 				biaoqiandefaultSelected: ["3", "5"], //默认选中项   
+				zuopingDetailTransfer:{
+					account:"1",
+					explain:"1",
+					taglist:"1",
+					launchTime:"1",
+					cameraArea:"1"
+				}
 			}
 		},
 		onShow() {
@@ -115,7 +128,42 @@
 			  ];
 			}, 1000);
 		},
+		onLoad(e) {
+			
+		},
 		methods: {
+
+			async postzuoping(){
+				console.log(this.imgList.length);
+				for(var i=0;i<this.imgList.length;i++){
+					this.img.name=i;
+					this.img.uri = this.imgList[i];
+					this.imgLists.push(this.img);
+				};
+				this.detailTransfer();
+				uni.uploadFile({
+				            url: 'http://192.168.199.165:8080/production/insertNewProduction', 
+							fileType: "image",  
+				            files: this.imgLists,
+				            formData: this.zuopingDetailTransfer,
+				            success: (uploadFileRes) => {
+				                console.log(uploadFileRes.data);
+				            }
+				});
+			},
+			detailChange:function(e){
+				console.log(e)
+				this.detail = e.detail.value;
+			},
+			detailTransfer:function(e){
+				console.log(e)
+				this.zuopingDetailTransfer.account='1';
+				this.zuopingDetailTransfer.explain=this.detail;
+				this.zuopingDetailTransfer.launchTime=this.years[0][this.yearsIndex1]+'-'+this.years[1][this.yearsIndex2]+'-'+this.years[2][this.yearsIndex3];
+				this.zuopingDetailTransfer.cameraArea=this.location[this.locationIndex];
+				this.zuopingDetailTransfer.taglist=this.biaoqianinfo;
+				console.log(this.zuopingDetailTransfer);
+			},
 			tableChange:function(e){
 				console.log(e)
 				this.tableIndex = e.detail.value;
@@ -131,19 +179,19 @@
 				this.locationIndex = e.detail.value;
 			},
 			ChooseImage() {
-				uni.chooseImage({
-					count: 4, //默认9
-					sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
-					sourceType: ['album'], //从相册选择
-					success: (res) => {
-						if (this.imgList.length != 0) {
-							this.imgList = this.imgList.concat(res.tempFilePaths)
-						} else {
-							this.imgList = res.tempFilePaths
-						}
-						this.count = this.imgList.length
-					}
-				});
+					uni.chooseImage({
+						count: 3, //默认9
+						sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+						sourceType: ['album'], //从相册选择
+						success: (res) => {
+							if (this.imgList.length != 0) {
+								this.imgList = this.imgList.concat(res.tempFilePaths)
+							} else {
+								this.imgList = res.tempFilePaths
+							}
+							this.count = this.imgList.length
+						},
+					});
 			},
 			ViewImage(e) {
 				uni.previewImage({
