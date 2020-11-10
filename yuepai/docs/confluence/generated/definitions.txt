@@ -1,0 +1,13 @@
+
+h2. 定义 {anchor:definitions}
+
+h3. JSONResult {anchor:jsonresult}
+
+||名称||说明||类型||
+|*data*\\ \\ _可选_||*样例* : {noformat}"object"{noformat}||object|
+|*msg*\\ \\ _可选_||*样例* : {noformat}"string"{noformat}||string|
+|*ok*\\ \\ _可选_||*样例* : {noformat}"string"{noformat}||string|
+|*status*\\ \\ _可选_||*样例* : {noformat}0{noformat}||integer (int32)|
+
+
+

@@ -1,0 +1,1294 @@
+
+h2. 资源 {anchor:paths}
+
+h3. Appointment-controller {anchor:appointment-controller_resource}
+Appointment Controller
+
+
+h4. 接受邀请 {anchor:acceptinvitationusingget}
+{noformat}
+GET /appointment/acceptInvitation
+{noformat}
+
+
+h5. 参数
+
+||类型||名称||说明||类型||
+|*Query*|*appoId*\\ \\ _可选_||appoId||integer (int32)|
+|*Query*|*inviteAccount*\\ \\ _可选_||inviteAccount||string|
+
+
+h5. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[JSONResult|#jsonresult]|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h5. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h5. 生成
+
+* {noformat}*/*{noformat}
+
+
+h5. HTTP请求示例
+
+h6. 请求 path
+{code}
+/appointment/acceptInvitation
+{code}
+
+
+h6. 请求 query
+{code:language=json}
+{
+  "appoId" : 0,
+  "inviteAccount" : "string"
+}
+{code}
+
+
+h5. HTTP响应示例
+
+h6. 响应 200
+{code:language=json}
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+{code}
+
+
+h4. 撤销邀请 {anchor:deleteinviteusingdelete}
+{noformat}
+DELETE /appointment/deleteInvite
+{noformat}
+
+
+h5. 参数
+
+||类型||名称||说明||类型||
+|*Query*|*account*\\ \\ _可选_||account||string|
+|*Query*|*id*\\ \\ _可选_||id||integer (int32)|
+
+
+h5. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[JSONResult|#jsonresult]|
+|*204*||No Content||无内容|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+
+
+h5. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h5. 生成
+
+* {noformat}*/*{noformat}
+
+
+h5. HTTP请求示例
+
+h6. 请求 path
+{code}
+/appointment/deleteInvite
+{code}
+
+
+h6. 请求 query
+{code:language=json}
+{
+  "account" : "string",
+  "id" : 0
+}
+{code}
+
+
+h5. HTTP响应示例
+
+h6. 响应 200
+{code:language=json}
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+{code}
+
+
+h4. 根据account获取对应约拍 {anchor:getappointmentbyaccountusingget}
+{noformat}
+GET /appointment/getAppointmentByAccount
+{noformat}
+
+
+h5. 参数
+
+||类型||名称||说明||类型||
+|*Query*|*account*\\ \\ _可选_||account||string|
+
+
+h5. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[JSONResult|#jsonresult]|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h5. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h5. 生成
+
+* {noformat}*/*{noformat}
+
+
+h5. HTTP请求示例
+
+h6. 请求 path
+{code}
+/appointment/getAppointmentByAccount
+{code}
+
+
+h6. 请求 query
+{code:language=json}
+{
+  "account" : "string"
+}
+{code}
+
+
+h5. HTTP响应示例
+
+h6. 响应 200
+{code:language=json}
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+{code}
+
+
+h4. 根据id获取对应约拍 {anchor:getappointmentbyidusingget}
+{noformat}
+GET /appointment/getAppointmentById
+{noformat}
+
+
+h5. 参数
+
+||类型||名称||说明||类型||
+|*Query*|*id*\\ \\ _可选_||id||integer (int32)|
+
+
+h5. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[JSONResult|#jsonresult]|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h5. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h5. 生成
+
+* {noformat}*/*{noformat}
+
+
+h5. HTTP请求示例
+
+h6. 请求 path
+{code}
+/appointment/getAppointmentById
+{code}
+
+
+h6. 请求 query
+{code:language=json}
+{
+  "id" : 0
+}
+{code}
+
+
+h5. HTTP响应示例
+
+h6. 响应 200
+{code:language=json}
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+{code}
+
+
+h4. 获取关注约拍 {anchor:getfocusappointmentusingget}
+{noformat}
+GET /appointment/getFocusAppointment
+{noformat}
+
+
+h5. 参数
+
+||类型||名称||说明||类型||
+|*Query*|*account*\\ \\ _可选_||account||string|
+
+
+h5. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[JSONResult|#jsonresult]|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h5. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h5. 生成
+
+* {noformat}*/*{noformat}
+
+
+h5. HTTP请求示例
+
+h6. 请求 path
+{code}
+/appointment/getFocusAppointment
+{code}
+
+
+h6. 请求 query
+{code:language=json}
+{
+  "account" : "string"
+}
+{code}
+
+
+h5. HTTP响应示例
+
+h6. 响应 200
+{code:language=json}
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+{code}
+
+
+h4. 获取热门约拍 {anchor:gethotappointmentusingget}
+{noformat}
+GET /appointment/getHotAppointment
+{noformat}
+
+
+h5. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[JSONResult|#jsonresult]|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h5. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h5. 生成
+
+* {noformat}*/*{noformat}
+
+
+h5. HTTP请求示例
+
+h6. 请求 path
+{code}
+/appointment/getHotAppointment
+{code}
+
+
+h5. HTTP响应示例
+
+h6. 响应 200
+{code:language=json}
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+{code}
+
+
+h4. 发起约拍邀请 {anchor:insertinviteusingget}
+{noformat}
+GET /appointment/insertInvite
+{noformat}
+
+
+h5. 参数
+
+||类型||名称||类型||
+|*Query*|*appointmentId*\\ \\ _可选_||integer (int32)|
+|*Query*|*inviteAccount*\\ \\ _可选_||string|
+|*Query*|*invitedAccount*\\ \\ _可选_||string|
+
+
+h5. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[JSONResult|#jsonresult]|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h5. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h5. 生成
+
+* {noformat}*/*{noformat}
+
+
+h5. HTTP请求示例
+
+h6. 请求 path
+{code}
+/appointment/insertInvite
+{code}
+
+
+h6. 请求 query
+{code:language=json}
+{
+  "appointmentId" : 0,
+  "inviteAccount" : "string",
+  "invitedAccount" : "string"
+}
+{code}
+
+
+h5. HTTP响应示例
+
+h6. 响应 200
+{code:language=json}
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+{code}
+
+
+h4. 拒绝邀请 {anchor:refuseinvitationusingget}
+{noformat}
+GET /appointment/refuseInvitation
+{noformat}
+
+
+h5. 参数
+
+||类型||名称||说明||类型||
+|*Query*|*appoId*\\ \\ _可选_||appoId||integer (int32)|
+|*Query*|*inviteAccount*\\ \\ _可选_||inviteAccount||string|
+
+
+h5. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[JSONResult|#jsonresult]|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h5. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h5. 生成
+
+* {noformat}*/*{noformat}
+
+
+h5. HTTP请求示例
+
+h6. 请求 path
+{code}
+/appointment/refuseInvitation
+{code}
+
+
+h6. 请求 query
+{code:language=json}
+{
+  "appoId" : 0,
+  "inviteAccount" : "string"
+}
+{code}
+
+
+h5. HTTP响应示例
+
+h6. 响应 200
+{code:language=json}
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+{code}
+
+
+h4. 根据条件查询接受和拒绝的邀请信息 {anchor:selectappobyconditionusingget}
+{noformat}
+GET /appointment/selectAppoByCondition
+{noformat}
+
+
+h5. 参数
+
+||类型||名称||说明||类型||
+|*Query*|*invitedAccount*\\ \\ _可选_||invitedAccount||string|
+|*Query*|*status*\\ \\ _可选_||status||integer (int32)|
+
+
+h5. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[JSONResult|#jsonresult]|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h5. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h5. 生成
+
+* {noformat}*/*{noformat}
+
+
+h5. HTTP请求示例
+
+h6. 请求 path
+{code}
+/appointment/selectAppoByCondition
+{code}
+
+
+h6. 请求 query
+{code:language=json}
+{
+  "invitedAccount" : "string",
+  "status" : 0
+}
+{code}
+
+
+h5. HTTP响应示例
+
+h6. 响应 200
+{code:language=json}
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+{code}
+
+
+h4. 根据条件查询发出被接受和被拒绝的邀请信息 {anchor:selectappobycondition2usingget}
+{noformat}
+GET /appointment/selectAppoByCondition2
+{noformat}
+
+
+h5. 参数
+
+||类型||名称||说明||类型||
+|*Query*|*inviteAccount*\\ \\ _可选_||inviteAccount||string|
+|*Query*|*status*\\ \\ _可选_||status||integer (int32)|
+
+
+h5. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[JSONResult|#jsonresult]|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h5. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h5. 生成
+
+* {noformat}*/*{noformat}
+
+
+h5. HTTP请求示例
+
+h6. 请求 path
+{code}
+/appointment/selectAppoByCondition2
+{code}
+
+
+h6. 请求 query
+{code:language=json}
+{
+  "inviteAccount" : "string",
+  "status" : 0
+}
+{code}
+
+
+h5. HTTP响应示例
+
+h6. 响应 200
+{code:language=json}
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+{code}
+
+
+h3. Hello-controller {anchor:hello-controller_resource}
+Hello Controller
+
+
+h4. 测试用接口 {anchor:hellousingget}
+{noformat}
+GET /hello
+{noformat}
+
+
+h5. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||string|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h5. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h5. 生成
+
+* {noformat}*/*{noformat}
+
+
+h5. HTTP请求示例
+
+h6. 请求 path
+{code}
+/hello
+{code}
+
+
+h5. HTTP响应示例
+
+h6. 响应 200
+{code:language=json}
+"string"
+{code}
+
+
+h3. Production-controller {anchor:production-controller_resource}
+Production Controller
+
+
+h4. 获取热门图片 {anchor:gethotimageusingget}
+{noformat}
+GET /production/getHotImg
+{noformat}
+
+
+h5. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[JSONResult|#jsonresult]|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h5. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h5. 生成
+
+* {noformat}*/*{noformat}
+
+
+h5. HTTP请求示例
+
+h6. 请求 path
+{code}
+/production/getHotImg
+{code}
+
+
+h5. HTTP响应示例
+
+h6. 响应 200
+{code:language=json}
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+{code}
+
+
+h4. 根据标签获取作品 {anchor:getproductionbytagusingget}
+{noformat}
+GET /production/getProduction
+{noformat}
+
+
+h5. 参数
+
+||类型||名称||说明||类型||
+|*Query*|*tag*\\ \\ _可选_||tag||string|
+
+
+h5. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[JSONResult|#jsonresult]|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h5. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h5. 生成
+
+* {noformat}*/*{noformat}
+
+
+h5. HTTP请求示例
+
+h6. 请求 path
+{code}
+/production/getProduction
+{code}
+
+
+h6. 请求 query
+{code:language=json}
+{
+  "tag" : "string"
+}
+{code}
+
+
+h5. HTTP响应示例
+
+h6. 响应 200
+{code:language=json}
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+{code}
+
+
+h4. 根据账号获取作品 {anchor:getproductionbyaccountusingget}
+{noformat}
+GET /production/getProductionByAccount
+{noformat}
+
+
+h5. 参数
+
+||类型||名称||说明||类型||
+|*Query*|*account*\\ \\ _可选_||account||string|
+
+
+h5. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[JSONResult|#jsonresult]|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h5. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h5. 生成
+
+* {noformat}*/*{noformat}
+
+
+h5. HTTP请求示例
+
+h6. 请求 path
+{code}
+/production/getProductionByAccount
+{code}
+
+
+h6. 请求 query
+{code:language=json}
+{
+  "account" : "string"
+}
+{code}
+
+
+h5. HTTP响应示例
+
+h6. 响应 200
+{code:language=json}
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+{code}
+
+
+h4. 新增作品 {anchor:insertnewproductionusingpost}
+{noformat}
+POST /production/insertNewProduction
+{noformat}
+
+
+h5. 参数
+
+||类型||名称||说明||类型||
+|*Query*|*account*\\ \\ _可选_|| ||string|
+|*Query*|*cameraArea*\\ \\ _可选_|| ||string|
+|*Query*|*explain*\\ \\ _可选_|| ||string|
+|*Query*|*file*\\ \\ _必填_||file||< file > array(multi)|
+|*Query*|*launchTime*\\ \\ _可选_|| ||string|
+|*Query*|*taglist*\\ \\ _可选_|| ||string|
+
+
+h5. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[JSONResult|#jsonresult]|
+|*201*||Created||无内容|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h5. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h5. 生成
+
+* {noformat}*/*{noformat}
+
+
+h5. HTTP请求示例
+
+h6. 请求 path
+{code}
+/production/insertNewProduction
+{code}
+
+
+h6. 请求 query
+{code:language=json}
+{
+  "account" : "string",
+  "cameraArea" : "string",
+  "explain" : "string",
+  "file" : "file",
+  "launchTime" : "string",
+  "taglist" : "string"
+}
+{code}
+
+
+h5. HTTP响应示例
+
+h6. 响应 200
+{code:language=json}
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+{code}
+
+
+h3. User-controller {anchor:user-controller_resource}
+User Controller
+
+
+h4. 关注 {anchor:followuserusingget}
+{noformat}
+GET /user/followUser
+{noformat}
+
+
+h5. 参数
+
+||类型||名称||说明||类型||
+|*Query*|*account*\\ \\ _可选_||account||string|
+|*Query*|*focusAccount*\\ \\ _可选_||focusAccount||string|
+
+
+h5. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[JSONResult|#jsonresult]|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h5. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h5. 生成
+
+* {noformat}*/*{noformat}
+
+
+h5. HTTP请求示例
+
+h6. 请求 path
+{code}
+/user/followUser
+{code}
+
+
+h6. 请求 query
+{code:language=json}
+{
+  "account" : "string",
+  "focusAccount" : "string"
+}
+{code}
+
+
+h5. HTTP响应示例
+
+h6. 响应 200
+{code:language=json}
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+{code}
+
+
+h4. 获取关注列表 {anchor:getfocuslistusingget}
+{noformat}
+GET /user/getFocusList
+{noformat}
+
+
+h5. 参数
+
+||类型||名称||说明||类型||
+|*Query*|*account*\\ \\ _可选_||account||string|
+
+
+h5. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[JSONResult|#jsonresult]|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h5. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h5. 生成
+
+* {noformat}*/*{noformat}
+
+
+h5. HTTP请求示例
+
+h6. 请求 path
+{code}
+/user/getFocusList
+{code}
+
+
+h6. 请求 query
+{code:language=json}
+{
+  "account" : "string"
+}
+{code}
+
+
+h5. HTTP响应示例
+
+h6. 响应 200
+{code:language=json}
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+{code}
+
+
+h4. 获取粉丝人数 {anchor:getfocusnumusingget}
+{noformat}
+GET /user/getFocusNum
+{noformat}
+
+
+h5. 参数
+
+||类型||名称||说明||类型||
+|*Query*|*account*\\ \\ _可选_||account||string|
+
+
+h5. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[JSONResult|#jsonresult]|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h5. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h5. 生成
+
+* {noformat}*/*{noformat}
+
+
+h5. HTTP请求示例
+
+h6. 请求 path
+{code}
+/user/getFocusNum
+{code}
+
+
+h6. 请求 query
+{code:language=json}
+{
+  "account" : "string"
+}
+{code}
+
+
+h5. HTTP响应示例
+
+h6. 响应 200
+{code:language=json}
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+{code}
+
+
+h4. 获取用户数据 {anchor:getuserbyaccountusingget}
+{noformat}
+GET /user/getUser
+{noformat}
+
+
+h5. 参数
+
+||类型||名称||说明||类型||
+|*Query*|*account*\\ \\ _可选_||account||string|
+
+
+h5. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[JSONResult|#jsonresult]|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h5. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h5. 生成
+
+* {noformat}*/*{noformat}
+
+
+h5. HTTP请求示例
+
+h6. 请求 path
+{code}
+/user/getUser
+{code}
+
+
+h6. 请求 query
+{code:language=json}
+{
+  "account" : "string"
+}
+{code}
+
+
+h5. HTTP响应示例
+
+h6. 响应 200
+{code:language=json}
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+{code}
+
+
+h4. 取消关注 {anchor:unfollowuserusingget}
+{noformat}
+GET /user/unfollowUser
+{noformat}
+
+
+h5. 参数
+
+||类型||名称||说明||类型||
+|*Query*|*account*\\ \\ _可选_||account||string|
+|*Query*|*focusAccount*\\ \\ _可选_||focusAccount||string|
+
+
+h5. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[JSONResult|#jsonresult]|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h5. 消耗
+
+* {noformat}application/json{noformat}
+
+
+h5. 生成
+
+* {noformat}*/*{noformat}
+
+
+h5. HTTP请求示例
+
+h6. 请求 path
+{code}
+/user/unfollowUser
+{code}
+
+
+h6. 请求 query
+{code:language=json}
+{
+  "account" : "string",
+  "focusAccount" : "string"
+}
+{code}
+
+
+h5. HTTP响应示例
+
+h6. 响应 200
+{code:language=json}
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+{code}
+
+
+h4. 修改用户数据 {anchor:updateuserbyaccountusingpost}
+{noformat}
+POST /user/updateUser
+{noformat}
+
+
+h5. 参数
+
+||类型||名称||说明||类型||
+|*Query*|*account*\\ \\ _可选_|| ||string|
+|*Query*|*age*\\ \\ _可选_|| ||integer (int32)|
+|*Query*|*area*\\ \\ _可选_|| ||string|
+|*Query*|*auth*\\ \\ _可选_|| ||string|
+|*Query*|*birthday*\\ \\ _可选_|| ||string|
+|*Query*|*city*\\ \\ _可选_|| ||string|
+|*Query*|*gender*\\ \\ _可选_|| ||integer (int32)|
+|*Query*|*height*\\ \\ _可选_|| ||integer (int32)|
+|*Query*|*hobby*\\ \\ _可选_|| ||string|
+|*Query*|*nickName*\\ \\ _可选_|| ||string|
+|*Query*|*phonenumber*\\ \\ _可选_|| ||string|
+|*Query*|*province*\\ \\ _可选_|| ||string|
+|*Query*|*weight*\\ \\ _可选_|| ||string|
+|*FormData*|*file*\\ \\ _必填_||file||file|
+
+
+h5. 响应
+
+||HTTP代码||说明||类型||
+|*200*||OK||[JSONResult|#jsonresult]|
+|*201*||Created||无内容|
+|*401*||Unauthorized||无内容|
+|*403*||Forbidden||无内容|
+|*404*||Not Found||无内容|
+
+
+h5. 消耗
+
+* {noformat}multipart/form-data{noformat}
+
+
+h5. 生成
+
+* {noformat}*/*{noformat}
+
+
+h5. HTTP请求示例
+
+h6. 请求 path
+{code}
+/user/updateUser
+{code}
+
+
+h6. 请求 query
+{code:language=json}
+{
+  "account" : "string",
+  "age" : 0,
+  "area" : "string",
+  "auth" : "string",
+  "birthday" : "string",
+  "city" : "string",
+  "gender" : 0,
+  "height" : 0,
+  "hobby" : "string",
+  "nickName" : "string",
+  "phonenumber" : "string",
+  "province" : "string",
+  "weight" : "string"
+}
+{code}
+
+
+h6. 请求 formData
+{code:language=json}
+"file"
+{code}
+
+
+h5. HTTP响应示例
+
+h6. 响应 200
+{code:language=json}
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+{code}
+
+
+

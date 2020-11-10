@@ -1,0 +1,1572 @@
+= 约拍
+
+
+[[_overview]]
+== 概览
+
+=== 版本信息
+[%hardbreaks]
+__版本__ : 1.0
+
+
+=== URI scheme
+[%hardbreaks]
+__域名__ : localhost:8080
+__基础路径__ : /
+
+
+=== 标签
+
+* appointment-controller : Appointment Controller
+* hello-controller : Hello Controller
+* production-controller : Production Controller
+* user-controller : User Controller
+
+
+
+
+[[_paths]]
+== 资源
+
+[[_appointment-controller_resource]]
+=== Appointment-controller
+Appointment Controller
+
+
+[[_acceptinvitationusingget]]
+==== 接受邀请
+....
+GET /appointment/acceptInvitation
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Query**|**appoId** +
+__可选__|appoId|integer (int32)
+|**Query**|**inviteAccount** +
+__可选__|inviteAccount|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_jsonresult,JSONResult>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/appointment/acceptInvitation
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "appoId" : 0,
+  "inviteAccount" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+----
+
+
+[[_deleteinviteusingdelete]]
+==== 撤销邀请
+....
+DELETE /appointment/deleteInvite
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Query**|**account** +
+__可选__|account|string
+|**Query**|**id** +
+__可选__|id|integer (int32)
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_jsonresult,JSONResult>>
+|**204**|No Content|无内容
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/appointment/deleteInvite
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "account" : "string",
+  "id" : 0
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+----
+
+
+[[_getappointmentbyaccountusingget]]
+==== 根据account获取对应约拍
+....
+GET /appointment/getAppointmentByAccount
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Query**|**account** +
+__可选__|account|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_jsonresult,JSONResult>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/appointment/getAppointmentByAccount
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "account" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+----
+
+
+[[_getappointmentbyidusingget]]
+==== 根据id获取对应约拍
+....
+GET /appointment/getAppointmentById
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Query**|**id** +
+__可选__|id|integer (int32)
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_jsonresult,JSONResult>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/appointment/getAppointmentById
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "id" : 0
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+----
+
+
+[[_getfocusappointmentusingget]]
+==== 获取关注约拍
+....
+GET /appointment/getFocusAppointment
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Query**|**account** +
+__可选__|account|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_jsonresult,JSONResult>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/appointment/getFocusAppointment
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "account" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+----
+
+
+[[_gethotappointmentusingget]]
+==== 获取热门约拍
+....
+GET /appointment/getHotAppointment
+....
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_jsonresult,JSONResult>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/appointment/getHotAppointment
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+----
+
+
+[[_insertinviteusingget]]
+==== 发起约拍邀请
+....
+GET /appointment/insertInvite
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^4"]
+|===
+|类型|名称|类型
+|**Query**|**appointmentId** +
+__可选__|integer (int32)
+|**Query**|**inviteAccount** +
+__可选__|string
+|**Query**|**invitedAccount** +
+__可选__|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_jsonresult,JSONResult>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/appointment/insertInvite
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "appointmentId" : 0,
+  "inviteAccount" : "string",
+  "invitedAccount" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+----
+
+
+[[_refuseinvitationusingget]]
+==== 拒绝邀请
+....
+GET /appointment/refuseInvitation
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Query**|**appoId** +
+__可选__|appoId|integer (int32)
+|**Query**|**inviteAccount** +
+__可选__|inviteAccount|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_jsonresult,JSONResult>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/appointment/refuseInvitation
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "appoId" : 0,
+  "inviteAccount" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+----
+
+
+[[_selectappobyconditionusingget]]
+==== 根据条件查询接受和拒绝的邀请信息
+....
+GET /appointment/selectAppoByCondition
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Query**|**invitedAccount** +
+__可选__|invitedAccount|string
+|**Query**|**status** +
+__可选__|status|integer (int32)
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_jsonresult,JSONResult>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/appointment/selectAppoByCondition
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "invitedAccount" : "string",
+  "status" : 0
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+----
+
+
+[[_selectappobycondition2usingget]]
+==== 根据条件查询发出被接受和被拒绝的邀请信息
+....
+GET /appointment/selectAppoByCondition2
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Query**|**inviteAccount** +
+__可选__|inviteAccount|string
+|**Query**|**status** +
+__可选__|status|integer (int32)
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_jsonresult,JSONResult>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/appointment/selectAppoByCondition2
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "inviteAccount" : "string",
+  "status" : 0
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+----
+
+
+[[_hello-controller_resource]]
+=== Hello-controller
+Hello Controller
+
+
+[[_hellousingget]]
+==== 测试用接口
+....
+GET /hello
+....
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|string
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/hello
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+"string"
+----
+
+
+[[_production-controller_resource]]
+=== Production-controller
+Production Controller
+
+
+[[_gethotimageusingget]]
+==== 获取热门图片
+....
+GET /production/getHotImg
+....
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_jsonresult,JSONResult>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/production/getHotImg
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+----
+
+
+[[_getproductionbytagusingget]]
+==== 根据标签获取作品
+....
+GET /production/getProduction
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Query**|**tag** +
+__可选__|tag|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_jsonresult,JSONResult>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/production/getProduction
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "tag" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+----
+
+
+[[_getproductionbyaccountusingget]]
+==== 根据账号获取作品
+....
+GET /production/getProductionByAccount
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Query**|**account** +
+__可选__|account|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_jsonresult,JSONResult>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/production/getProductionByAccount
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "account" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+----
+
+
+[[_insertnewproductionusingpost]]
+==== 新增作品
+....
+POST /production/insertNewProduction
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Query**|**account** +
+__可选__||string
+|**Query**|**cameraArea** +
+__可选__||string
+|**Query**|**explain** +
+__可选__||string
+|**Query**|**file** +
+__必填__|file|< file > array(multi)
+|**Query**|**launchTime** +
+__可选__||string
+|**Query**|**taglist** +
+__可选__||string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_jsonresult,JSONResult>>
+|**201**|Created|无内容
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/production/insertNewProduction
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "account" : "string",
+  "cameraArea" : "string",
+  "explain" : "string",
+  "file" : "file",
+  "launchTime" : "string",
+  "taglist" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+----
+
+
+[[_user-controller_resource]]
+=== User-controller
+User Controller
+
+
+[[_followuserusingget]]
+==== 关注
+....
+GET /user/followUser
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Query**|**account** +
+__可选__|account|string
+|**Query**|**focusAccount** +
+__可选__|focusAccount|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_jsonresult,JSONResult>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/user/followUser
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "account" : "string",
+  "focusAccount" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+----
+
+
+[[_getfocuslistusingget]]
+==== 获取关注列表
+....
+GET /user/getFocusList
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Query**|**account** +
+__可选__|account|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_jsonresult,JSONResult>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/user/getFocusList
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "account" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+----
+
+
+[[_getfocusnumusingget]]
+==== 获取粉丝人数
+....
+GET /user/getFocusNum
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Query**|**account** +
+__可选__|account|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_jsonresult,JSONResult>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/user/getFocusNum
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "account" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+----
+
+
+[[_getuserbyaccountusingget]]
+==== 获取用户数据
+....
+GET /user/getUser
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Query**|**account** +
+__可选__|account|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_jsonresult,JSONResult>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/user/getUser
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "account" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+----
+
+
+[[_unfollowuserusingget]]
+==== 取消关注
+....
+GET /user/unfollowUser
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Query**|**account** +
+__可选__|account|string
+|**Query**|**focusAccount** +
+__可选__|focusAccount|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_jsonresult,JSONResult>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/user/unfollowUser
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "account" : "string",
+  "focusAccount" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+----
+
+
+[[_updateuserbyaccountusingpost]]
+==== 修改用户数据
+....
+POST /user/updateUser
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Query**|**account** +
+__可选__||string
+|**Query**|**age** +
+__可选__||integer (int32)
+|**Query**|**area** +
+__可选__||string
+|**Query**|**auth** +
+__可选__||string
+|**Query**|**birthday** +
+__可选__||string
+|**Query**|**city** +
+__可选__||string
+|**Query**|**gender** +
+__可选__||integer (int32)
+|**Query**|**height** +
+__可选__||integer (int32)
+|**Query**|**hobby** +
+__可选__||string
+|**Query**|**nickName** +
+__可选__||string
+|**Query**|**phonenumber** +
+__可选__||string
+|**Query**|**province** +
+__可选__||string
+|**Query**|**weight** +
+__可选__||string
+|**FormData**|**file** +
+__必填__|file|file
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_jsonresult,JSONResult>>
+|**201**|Created|无内容
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `multipart/form-data`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/user/updateUser
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "account" : "string",
+  "age" : 0,
+  "area" : "string",
+  "auth" : "string",
+  "birthday" : "string",
+  "city" : "string",
+  "gender" : 0,
+  "height" : 0,
+  "hobby" : "string",
+  "nickName" : "string",
+  "phonenumber" : "string",
+  "province" : "string",
+  "weight" : "string"
+}
+----
+
+
+====== 请求 formData
+[source,json]
+----
+"file"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "data" : "object",
+  "msg" : "string",
+  "ok" : "string",
+  "status" : 0
+}
+----
+
+
+
+
+[[_definitions]]
+== 定义
+
+[[_jsonresult]]
+=== JSONResult
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**data** +
+__可选__|**样例** : `"object"`|object
+|**msg** +
+__可选__|**样例** : `"string"`|string
+|**ok** +
+__可选__|**样例** : `"string"`|string
+|**status** +
+__可选__|**样例** : `0`|integer (int32)
+|===
+
+
+
+
+
