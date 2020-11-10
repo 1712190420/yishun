@@ -70,6 +70,7 @@
 
 <script>
 	import multipleSelect from '@/components/uni-segmented-control/multiple-select.vue'
+	//import uniRate from '@/components/uni-rate/uni-rate.vue';
 	export default {
 		data() {
 			return {
@@ -95,6 +96,7 @@
 				locationIndex:0,
 				biaoqianshow: false, //是否显示 - 双向绑定
 				biaoqianinfo: "",
+				biaoqianindex:"",
 				biaoqianlist: [], //数据源
 				biaoqiandefaultSelected: ["3", "5"], //默认选中项   
 				zuopingDetailTransfer:{
@@ -110,20 +112,20 @@
 			setTimeout(() => {
 			  this.biaoqianlist = [
 			    {
-			      label: "毕业照",
-			      value: "1",
-			    },
-			    {
-			      label: "证件照",
-			      value: "2",
+			      label: "人像",
+			      value: "0",
 			    },
 			    {
 			      label: "美食",
-			      value: "3",
+			      value: "1",
 			    },
 			    {
-			      label: "汉服",
-			      value: "4",
+			      label: "前卫",
+			      value: "2",
+			    },
+			    {
+			      label: "风景",
+			      value: "3",
 			    },
 			  ];
 			}, 1000);
@@ -134,16 +136,16 @@
 		methods: {
 
 			async postzuoping(){
-				console.log(this.imgList.length);
-				for(var i=0;i<this.imgList.length;i++){
-					this.img.name=i;
-					this.img.uri = this.imgList[i];
-					this.imgLists.push(this.img);
-				};
+				this.imgLists = this.imgList.map((value, index) => {
+					return {
+						file: 'image',
+						uri: value,
+					}
+				})
+				console.log(this.imgLists[1])
 				this.detailTransfer();
 				uni.uploadFile({
-				            url: 'http://192.168.199.165:8080/production/insertNewProduction', 
-							fileType: "image",  
+				            url: 'http://39.107.138.166:8080/production/insertNewProduction', 
 				            files: this.imgLists,
 				            formData: this.zuopingDetailTransfer,
 				            success: (uploadFileRes) => {
@@ -161,7 +163,7 @@
 				this.zuopingDetailTransfer.explain=this.detail;
 				this.zuopingDetailTransfer.launchTime=this.years[0][this.yearsIndex1]+'-'+this.years[1][this.yearsIndex2]+'-'+this.years[2][this.yearsIndex3];
 				this.zuopingDetailTransfer.cameraArea=this.location[this.locationIndex];
-				this.zuopingDetailTransfer.taglist=this.biaoqianinfo;
+				this.zuopingDetailTransfer.taglist=this.biaoqianindex;
 				console.log(this.zuopingDetailTransfer);
 			},
 			tableChange:function(e){
@@ -202,6 +204,7 @@
 			confirm(data) {
 				  console.log(data);
 				  this.biaoqianinfo = data.map((el) => el.label).join("  ");
+				  this.biaoqianindex=data.map((el) => el.value).join("  ");
 			}
 		},
 		components: {

@@ -352,7 +352,7 @@
 			async changeUser(){
 				console.log(this.img);
 				uni.uploadFile({
-				    url: 'http://localhost:8888/user/updateUser', //仅为示例，非真实的接口地址
+				    url: 'http://39.107.138.166:8080/user/updateUser', //仅为示例，非真实的接口地址
 				    filePath: this.img,
 				    name: 'file',
 				    formData:this.userDetailTransfer,

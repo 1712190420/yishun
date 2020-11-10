@@ -192,7 +192,7 @@
 	line-height: 50upx;
 	float:left;
 	margin-right: 10upx;
-	font-size: 8upx;
+	font-size: 28upx;
 	border: 1upx solid #4D3B7E;
 	background-color: #FFFFFF;
 }
@@ -222,7 +222,7 @@
 	margin-left: 60upx;
 }
 .test{
-	font-size: 8upx;
+	font-size: 28upx;
 }
 .faqiyaoqing{
 	display: flex;

@@ -86,7 +86,7 @@
 								</view>
 							</view>	
 							<view class="anniu">
-								<button @click="yaoqing(index)" class="anniuyangshi yaoqing" type="default"><image src="../../static/icon/yaoqing.png" style="width: 30upx;height: 30upx;align-items: center;color: #007AFF;"></image>邀请约拍</button>
+								<button @click="yaoqing(index)" class="anniuyangshi yaoqing" type="default"><image src="../../static/icon/yaoqing.png" style="width: 30upx;height: 30upx;align-items: center;color: #007AFF;"></image>邀请</button>
 								<button @click="guanzhu" class="anniuyangshi guanzhuyonghu" type="default">添加关注</button>
 							</view>
 						</view>
@@ -272,7 +272,7 @@
 	line-height: 50upx;
 	float:left;
 	margin-left: 50upx;
-	font-size: 8upx;
+	font-size: 28upx;
 	border: 1upx solid #4D3B7E;
 	background-color: #FFFFFF;
 }

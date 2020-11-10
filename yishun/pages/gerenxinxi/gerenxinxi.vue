@@ -78,7 +78,7 @@
 				me:[],
 			}
 		},
-		onLoad(e) {
+		onShow(e) {
 			this.initPage()
 		},
 		methods: {

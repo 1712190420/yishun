@@ -3,7 +3,7 @@
 		<uni-segmented-control :current="current" :values="items" @clickItem="onClickItem" style-type="button" radius="100%" width="80%" active-color="#4D3B7E" style="background-color: #FFFFFF;" ></uni-segmented-control>
 		<view class="content">
 		    <view v-show="current === 0">
-				<scroll-view scroll-y="true" style="height: 1070upx;">
+				<scroll-view scroll-y="true" style="height: 1400upx;">
 					<view v-for="(item,index) in information" :key="index">
 						<view class="yuepai">
 							<view class="gerenxinxi" @click="jumpzhuye(index)">
@@ -66,7 +66,7 @@
 			</view>
 			<view v-show="current === 1">
 				<view v-if="zero.status == 200">
-					<scroll-view scroll-y="true" style="height: 1070upx;">
+					<scroll-view scroll-y="true" style="height: 1400upx;">
 						<view v-for="(item,index) in guanzhushuju" :key="index">
 							<view class="yuepai">
 								<view class="gerenxinxi" @click="jumpzhuye(index)">
@@ -152,7 +152,7 @@
 				tableList:["风景照","前卫照","人像照","美食照"],
 	        }
 	    },
-		onLoad(e) {
+		onShow(e) {
 			this.initPage()
 		},
 	    methods: {
@@ -262,7 +262,7 @@
 	line-height: 50upx;
 	float:left;
 	margin-right: 10upx;
-	font-size: 8upx;
+	font-size: 28upx;
 	border: 1upx solid #4D3B7E;
 	background-color: #FFFFFF;
 }

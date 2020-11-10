@@ -1,6 +1,6 @@
 // 接口的公共地址，后续如果接口改变时可手动改变
-//const BASE_URL = 'http://192.168.199.165:8080'
-const BASE_URL = 'http://localhost:8888'
+const BASE_URL = 'http://39.107.138.166:8080'
+//const BASE_URL = 'http://localhost:8888'
 export const myRequest = (options)=>{
 	return new Promise((resolve, reject)=>{ // Promise相关知识需要学习JavaScript
 		// 封装主体：网络请求

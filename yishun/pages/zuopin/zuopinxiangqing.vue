@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view v-if="status.status == 200">
-			<scroll-view scroll-y="true" style="height: 1000upx;">
+			<scroll-view scroll-y="true" style="height: 1600upx;">
 				<view v-for="(item,index) in zuoping" :key="index">
 					<view class="yuepai">
 						<view class="picture">
@@ -29,7 +29,7 @@
 							</view>
 						</view>	
 						<view class="anniu">
-							<button @click="yaoqing(index)" class="anniuyangshi yaoqing" type="default"><image src="../../static/icon/yaoqing.png" style="width: 30upx;height: 30upx;align-items: center;color: #007AFF;"></image>邀请约拍</button>
+							<button @click="yaoqing(index)" class="anniuyangshi yaoqing" type="default"><image src="../../static/icon/yaoqing.png" style="width: 30upx;height: 30upx;align-items: center;color: #007AFF;"></image>邀请</button>
 							<button @click="guanzhu" class="anniuyangshi guanzhu" type="default">添加关注</button>
 						</view>
 					</view>
